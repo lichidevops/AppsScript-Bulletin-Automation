@@ -107,10 +107,10 @@ if(principalMessage!==""){
   var studentMailObject = {};       // build the mail object
   var studentRecipients;            // initialize mail recipients variable
 
-  let sttudentBulletinHTMLurl = "<b><a href='"+studentBulletinUrl+"'>Upper School Daily Bulletin "+semester+"</a></b>";
+  let sttudentBulletinHTMLurl = "<b><a href='"+studentBulletinUrl+"'>Daily Bulletin "+semester+"</a></b>";
 
   if(studentReceivingParty ==""){
-    studentRecipients = 'lchi@dwight.or.kr';
+    studentRecipients = 'defaultUsersEmail';
   }else{
     console.log(studentReceivingParty)
     studentRecipients = studentReceivingParty;
