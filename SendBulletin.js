@@ -66,18 +66,18 @@ function sendStaffBulletin(){
   console.log(semester);
 
   if(staffReceivingParty ==""){
-    var staffRecipients = "allmypdp@dwight.or.kr";
+    var staffRecipients = "";
   }else{
     var staffRecipients = staffReceivingParty;           // to whom / receiver
   }
 
   staffMailObject['to'] = staffRecipients;                  // recipient:
-  staffMailObject['subject'] = "US Daily Bulletin: "+subjectDate;   // Subject
-  staffMailObject['name'] = "US Daily Bulletin";
+  staffMailObject['subject'] = "Daily Bulletin: "+subjectDate;   // Subject
+  staffMailObject['name'] = "Daily Bulletin";
   var linebreak = "<br/><br/>";
 
 
-  let staffBulletinHTMLurl = "<b><a href='"+staffBulletinFileUrl+"'>Upper School Daily Bulletin "+semester+"</a></b>"
+  let staffBulletinHTMLurl = "<b><a href='"+staffBulletinFileUrl+"'>Daily Bulletin "+semester+"</a></b>"
 
 // email message body algorithm: 
 if(principalMessage!==""){
@@ -118,19 +118,19 @@ if(principalMessage!==""){
 
   studentMailObject['to'] = studentRecipients;
   studentMailObject['subject'] = "Daily Bulletin: "+subjectDate;
-  studentMailObject['name'] = 'US Students Daily Bulletin';
+  studentMailObject['name'] = 'Students Daily Bulletin';
   
   if(messageToStudent!==""){
-    studentMailObject['htmlBody'] ="Good morning Dwight students: "+ linebreak+ messageToStudent + linebreak + sttudentBulletinHTMLurl;
+    studentMailObject['htmlBody'] ="Good morning  students: "+ linebreak+ messageToStudent + linebreak + sttudentBulletinHTMLurl;
   }else if(messageToStudent=="" &&dateTime.currentWeekDay === 5){
-    studentMailObject['htmlBody'] = "Good morning Dwight students: "+ linebreak +"Here's today's Bulletin" + linebreak + sttudentBulletinHTMLurl + linebreak +"Have a great Weekend!";
+    studentMailObject['htmlBody'] = "Good morning  students: "+ linebreak +"Here's today's Bulletin" + linebreak + sttudentBulletinHTMLurl + linebreak +"Have a great Weekend!";
 
   }else if(messageToStudent==""&&dateTime.currentWeekDay === 1){
-       studentMailObject['htmlBody'] = "Good morning Dwight students: "+ linebreak +"Here's today's Bulletin"+ linebreak + sttudentBulletinHTMLurl + linebreak +"Have a great start of the week!";
+       studentMailObject['htmlBody'] = "Good morning  students: "+ linebreak +"Here's today's Bulletin"+ linebreak + sttudentBulletinHTMLurl + linebreak +"Have a great start of the week!";
 
   }else if(messageToStudent==""){                          
      // if it's during the week
-    studentMailObject['htmlBody'] = "Good morning Dwight students: "+ linebreak +"Here's today's Bulletin" + linebreak + sttudentBulletinHTMLurl + linebreak + "Have a great day!";;
+    studentMailObject['htmlBody'] = "Good morning  students: "+ linebreak +"Here's today's Bulletin" + linebreak + sttudentBulletinHTMLurl + linebreak + "Have a great day!";;
   }
 
   console.log(studentMailObject);
